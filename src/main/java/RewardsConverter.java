@@ -13,8 +13,14 @@ public class RewardsConverter {
             System.out.println("Could not parse input value as a double, exiting");
             return;
         }
-        System.out.println("converting $" + input_value + " to miles");
-        var rewardsValue = new RewardValue(cashValue);
-        System.out.println("$" + input_value + " is worth " + rewardsValue.getMilesValue() + " miles");
+
+        // Create an instance of RewardValue with the cash value
+        RewardValue rewardValue = new RewardValue(cashValue);
+        
+        // Perform the conversion
+        double miles = rewardValue.convertToMiles();
+        
+        // Display the result
+        System.out.printf("Cash value of $%.2f is equivalent to %.2f airline miles.%n", cashValue, miles);
     }
 }
